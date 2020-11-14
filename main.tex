@@ -1,0 +1,156 @@
+\documentclass{swfuthesis}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\usepackage{wx672tut}
+
+\addbibresource{thesis.bib} % 参照教程自己去写一个.bib文件
+
+\swfusetup{
+  Title={面向社交网络数据的主题跟踪算法与系统实现}, % 论文标题
+  enTitle={Topic tracking algorithm and system implementation for social network data}, % 论文标题（英文）
+  Author={葛宇航}, % 作者姓名
+  ID ={20160952004}, % 学号  
+  enAuthor={Yuhang Ge}, % 作者姓名（英文）
+  Advisor={张雁(教授)}, % 指导教师姓名
+  Major={计算机科学与技术}, %专业名称  
+  Year={2020},
+  Month        ={4},
+  Date         ={20},
+  % AdvisorTitle ={Titleless}, % 指导教师职称
+  % Reviewer ={Name (Title)}, % 评阅人
+}
+
+\begin{document}
+
+\maketitle
+
+\frontmatter
+
+\begin{abstract} % 摘要
+社交网络平台不断产生大量的文本数据，这些文本都是实时、大量、连续、有序的，并别通常长度较短，我们称之为短文本数据流。短文本数据流长度较短，缺乏充分的上下文信息，
+文本特征高维稀疏，数据产生速度快、数量大，并且会随时间产生潜在的概念漂移问题。因此，如何高
+效地从短文本数据流中发现有用信息（主题）成为研究的核心问题。Twitter作为英文语言环境最流行
+的社交平台，它为数据科学研究者、互联网公司等提供了丰富的短文本数据，利用这些海量的短文本数
+据，可以分析和洞察网络舆情，帮助互联网公司优化产品用户体验(如优化搜索引擎结果)。本文面向
+Twitter文本数据，设计一套针对短文本数据流的数据挖掘算法，对短文本数据流进行挖掘，从中提取
+有用的信息。通过Twitter官方提供的数据下载API获取到实验数据，用于本地模拟数据流。考虑到短文
+本的稀疏性问题，利用外部语料库扩展的方式，增强语义信息。借助BTM主题模型从文本数据中提取主
+题分布作为特征，并基于Scikit-Learn机器学习框架进行SVM和集成算法的搭建，并考虑到数据流随时间推
+移产生的概念漂移现象。最后，利用Django框
+架，采用B/S设计模式搭建一套可视化的数据挖掘平台，对集成分类算法进行了整合，同时提供可交互
+的用户界面，方便用户快速了解数据挖掘的基本流程，展示实验结果。
+
+%  由于短文本数据具有自身长度短、所描述信号弱的固有特点,传统的文本挖掘算法难以适用. 因而，
+%     研究者们探索了一系列针对短文本数据处理的方法，例如： Wang 等于 2014 年提出使用
+%     LDA(latent Dirichlet allocation）主题模型和最大熵与支持向量机作为分类器的短文本分类算法\cite{Peng2016Semantic}。 Phan 等提出基于隐含主题的框架用于扩展短文本,通过LDA发现语料库的隐含主题
+% ， 构建主题模型推断短文本主题分布, 选择概率高的主题扩展到短文本中，从而丰富语义信息
+% \cite{Phan2011A}。 Vo、Young等人考虑短文本和其他词的语义关系寻找最适合主题扩展短文本，
+% 缓解文本稀疏性问题\cite{Vo2015Learning}。
+ 
+
+\end{abstract}
+
+\begin{keyword} % 关键词
+短文本数据流分类； 主题模型；概念漂移；数据可视化；
+\end{keyword}
+
+\begin{EAbstract} % 英文摘要
+Social network platforms continue to generate large amounts of text data, which are real-time, large, continuous, and
+Sequential, and usually not short in length, we call it short text data flow. Short text data stream is short in length and lacks charging Divided context information, text features are high-dimensional and sparse, data is generated quickly, the number is large, and potentials are generated over time
+In the concept of drifting issues. Therefore, how to efficiently find useful information (topics) from short text data streams has become a research
+The core issue of research. As the most popular social platform for English language
+environment, Twitter is a data science researcher, Networked companies, have provided a
+wealth of short text data. Using these massive short text data, you can analyze and gain
+insight into the web Network public opinion to help Internet companies optimize product user experience (such as optimizing search engine results). This article is for Twitter
+Text data, design a set of data mining algorithms for short text data streams, mining short text data streams, from
+To extract useful information. Obtain experimental data through the official data download API provided by Twitter for local use
+Simulate data flow. Taking into account the sparseness of short text, the use of external corpus expansion methods to enhance semantic information.
+Using the BTM topic model to extract topic distribution from text data as features, and
+based on Scikit-Learn machine learning framework builds SVM and ensemble algorithms, and takes into account the concept drift phenomenon that the data stream generates over time.
+Finally, using the Django framework, the B/S design mode is used to build a visual data mining platform to integrate
+The classification algorithm is integrated, and an interactive user interface is provided to facilitate users to quickly understand the basics of data mining.
+\end{EAbstract}
+
+\begin{EKeyword} % 英文关键词
+Short Text Data Stream; Topic Model; Concept Drift; Data
+Visualization; 
+\end{EKeyword}
+
+\tableofcontents     % 目录
+\listoffigures       % 插图目录，可以没有
+\listoftables        % 表格目录，可以没有
+% \cleardoublepage % keep this line
+% \pagenumbering{arabic}
+
+\mainmatter
+% 参考教程，在chapters目录中单独写各章（ch1.tex, ch2.tex...）
+\include{chapters/ch1-pre} % 绪论
+\include{chapters/ch2-view} % 相关工作概述
+\include{chapters/ch3-algo} % 集成分类算法研究
+\include{chapters/ch4-plat} % 算法与系统实现
+% \include{chapters/ch5-test} % 测试与结论
+\include{chapters/ch6-sum} % 总结与展望
+
+%%%%% appendix （参考文献、指导教师简介、鸣谢、附录）
+\appendix % keep this line
+\makebib % 参考文献
+
+\begin{advisorInfo} % 指导教师简介
+  % 张雁，女，——岁，博士，教授，毕业于——大学，——专业。现任
+  % 西南林业大学大数据与智能工程学院——。执教——，有丰富的——经验。
+  
+\end{advisorInfo}
+
+\begin{acknowledgment} % 致谢
+完成本篇论文，意味着我的本科学习生涯就快要结束了。借此机会感谢一路上帮助、关心过我的老师、
+同学和我的家人们。大数据与智能工程学院是我心中的霍格沃茨学院，四年里，每每我更加深刻地理解
+计算机时，它总会让我感到犹如魔法般绚丽。正是那些理性的光辉，一次次令我着迷，让我对
+这门学科的兴趣被一次次激活。
+
+首先，由衷感谢我的毕业论文指导老师张雁教授以及合肥工业大学李培培教授，张老师学识渊博、为人正直而且平易近人，深得学生们的
+爱戴与尊敬。在我完成我的毕业论文的过程中，从开题到中期报告再到论文撰写，张老师都给予了我很
+大的帮助，即便疫情期间没能去到学校，张老师仍通过网络不断监督、指导着我们的学习，我们作为
+学生被张老师认真负责、严谨治学的态度深深打动，时刻提醒自己今后一定要学会这种优秀的品质，做一个对社会、对国家
+有价值的科研人。李老师是我未来研究生生涯的指导老师，她给了我本论文的命题和研究方向，在前
+期学习、编码以及论文撰写过程中提出了许多宝贵的建议，也让我在短短几个月时间里对未来研究内容有了大致
+的了解，为研究生生涯提前做好准备。
+
+其次，感谢四年本科生涯帮助过我的其他老师们以及同学们。王晓林教授是我来到大数据与智能工程学院遇到
+的第一位老师，我始终记得那个昆明独有的沁人心脾的早晨，我走进教室，终于开始了我计算机学习生涯的
+第一堂课，王老师轻松幽默却又深刻的授业方式让我终身难忘，他的出现点燃我对这个学科的热情，让我
+接下来能够一步一个脚印完成本科阶段的学习。当然，大数据与智能工程学院的其他各位老师也都是我学习路上的明
+灯，与他们的交流过程中，我学习到的不仅仅是知识，还有如何思考问题的方式，这对我来说无疑是巨
+大的收获。计算机科学与技术专业的每位同学，都有值得学习的地方，他们当中不乏有十分聪明又努力
+的，也有喜欢不断追求新事物、新挑战的，他们对我的影响足以改变我的人生。
+
+同时，感谢我的家人，因为只有他们作为我强大的后盾，让我在生活上没有后顾之忧，我才能专心下来
+学习。在我遇到困难时，也是他们第一个站出来，给我支持和力量，他们是我不断前行的人生路中最大
+的动力。
+
+最后，感谢美国计算机教授高德纳（Donald Ervin Knuth）编写的功能强大的排版软件\TeX{}。感谢美国计算
+机科学家莱斯利·兰波特（Leslie Lamport）教授为\TeX{}开发的简单易用的\LaTeX{}宏包。感谢
+王老师编写的优秀的\LaTeX{}模板。
+让在撰写毕业论文时有着非同寻常的体验，基本无需考虑繁杂的排版与格式问题，真正专注到书写论文
+本身，才能更好完成这篇论文。
+  
+  % \cite{Wangxiaoling}
+  
+\end{acknowledgment}
+
+%%%%% 附录章节
+\singlespacing
+\include{chapters/append} 
+
+\end{document} % 结束。不要动下面几行！
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

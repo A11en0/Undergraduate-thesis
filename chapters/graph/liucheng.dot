@@ -1,0 +1,20 @@
+digraph G{
+
+size = "1024, 768";//图片大小
+dpi = 300;
+    node[shape=box, color=black, style=unfilled];
+
+	开始[shape=box, style=rounded];/*形状*/
+	结束[shape=box, style=rounded];/*形状*/	
+	生成数据块[shape=parallelogram];
+	if_u[shape=diamond, label="dist > u"]
+	
+	开始->生成数据块;
+	生成数据块->对当前数据块进行聚类得到大小为C的簇;
+	对当前数据块进行聚类得到大小为C的簇->计算新数据块中短文本和所有类簇的语义距离;
+	计算新数据块中短文本和所有类簇的语义距离->将最小值作为该短文本和数据块的语义距离;
+	将最小值作为该短文本和数据块的语义距离->计算所有短文本与数据块距离的均值dist;
+	计算所有短文本与数据块距离的均值dist->if_u;
+	if_u->{发生概念漂移, 未发生概念漂移};
+	{发生概念漂移, 未发生概念漂移}->结束;
+}

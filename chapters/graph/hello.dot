@@ -1,0 +1,39 @@
+digraph hierarchy {
+
+   nodesep=1.0 // increases the separation between nodes
+//   size="100,100"
+   node [color=Black,fontname=Courier,shape=box] //All nodes will this shape and colour
+   edge [color=Black] //All the lines look like this
+
+   外部语料库 [shape=cylinder]
+   原始数据流 [shape=cylinder]
+   扩展后数据流 [shape=cylinder]   
+   集成学习[shape=normal]
+   外部语料库->原始数据流
+   原始数据流->扩展后数据流
+   
+   f1->特征表示D1[dir=back]
+   特征表示D1->D1[dir=back]
+
+   f2->特征表示D2[dir=back]
+   特征表示D2->D2[dir=back]
+
+   f3->特征表示D3[dir=back]
+   特征表示D3->D3[dir=back]
+
+   f4->特征表示D4[dir=back]
+   特征表示D4->D4[dir=back]
+
+   f1->集成学习
+   f2->集成学习
+   f3->集成学习
+   f4->集成学习
+   
+ //   { rank=same D1 D2 D3 D4}
+ // { rank=same 特征选择D1 特征选择D2 特征选择D3 特征选择D4}   
+
+   // BusinessManager->ITManager
+   // {rank=same;ITManager Teacher1 Teacher2}  // Put them on the same level
+}
+
+

@@ -1,0 +1,12 @@
+digraph G{
+    size = "1024, 768";//图片大小
+    dpi = 300;
+	
+    node[shape=box, color=black, style=unfilled];
+
+	text[label="文本输入(The Computer...)"]
+	model[label="分类模型"]
+	tags[label="标签输出\"Computer Science Useful\""]
+	
+	text->model->tags;
+}

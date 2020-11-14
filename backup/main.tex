@@ -1,0 +1,104 @@
+\documentclass{swfuthesis}
+
+\addbibresource{thesis.bib} % 参照教程自己去写一个.bib文件
+
+\pgfkeys{
+  Title={面向社交网络数据的主题跟踪算法与系统实现}, % 论文标题
+  enTitle={Topic tracking algorithm and system implementation for social network data}, % 论文标题（英文）
+  Author={葛宇航}, % 作者姓名
+  enAuthor={Yuhang Ge}, % 作者姓名（英文）
+  Advisor={张雁}, % 指导教师姓名
+  AdvisorTitle={教授}, % 指导教师职称
+  Year={二〇二〇},
+  Month={六},
+  Major={计算机科学与技术专业}, %专业名称（比如 电子信息工程专业）
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract} % 摘要
+随着移动互联网的普及, 各种如新浪微博, 微信, Facebook, twitter等社交网络应用不断涌现. 由此伴随着开始产生大量的短文本数据. 然而, 实际应用中短文本数据流如下特点: 文本长度较短(例如：一条腾讯微博字数不超过140 汉字), 缺乏充分的上下文信息, 文本特征高维稀疏, 数据产生速度快、数量大，并且会随时间产生潜在的概念漂移问题因此, 因此如何从新型短文本数据中发现有用信息（主题）成为数据挖掘技术在实际领域面临的挑战而亟待解决的关键难题之一.
+
+由于短文本数据具有自身长度短、所描述信号弱的固有特点, 传统的文本分类批处理算法难以直接应用. 因而，研究者们探索了一系列针对短文本数据处理的方法，例如：Wang等于2014年提出基于LDA(latent Dirichlet allocation）模型和最大熵与支持向量机分类器的短文本分类算法[4]. Phan等提出基于隐含主题的框架用于扩展短文本, 借助 LDA 模型从外部语料库中挖掘隐含主题, 构建主题模型推断短文本主题分布, 选择概率高的主题扩展到短文本中，从而丰富语义信息[7]. Vo D T和Ock C Y等考虑短文本和其他词的语义关系寻找最适合主题扩展短文本[9], 缓解文本稀疏性问题.
+
+短文本数据流蕴含着丰富的研究价值和商业价值，例如新浪微博作为一款有响力的信息分享和交流平台，
+它为广大研究者、企业用户和政府部门提供了丰的短文本数据，这些海量的短文本数据流可以监听和分
+析网络舆情，帮助使用快速了解研究对象的相关热门话题，发现未知的洞察，以及危险预警等。除此外，
+我们可以利用相关的数据挖掘算法分析微博的短文本数据流，用以检测各行业相关账号的表现和动态，
+分析比较分析格局和微博互动效果等。为此，合理的分析与利用这些短文本数据，对广大研究者来说，
+有助于拓宽究视角，激发学术激情，为我国学术研究提供更加丰富的成果；对商业用户来，有助于了解
+客户群体的喜好，从而生产更适应客户喜好和行为的产品；
+
+\end{abstract}
+
+\begin{keyword} % 关键词
+  数据挖掘; 主题跟踪算法; 社交网络短文本; 主题模型;
+\end{keyword}
+
+\begin{EAbstract} % 英文摘要
+
+\end{EAbstract}
+
+\begin{EKeyword} % 英文关键词
+    Data Mining; Topic tracking; Social Network; Topic Model;
+\end{EKeyword}
+
+\tableofcontents     % 目录
+\listoffigures       % 插图目录，可以没有
+\listoftables        % 表格目录，可以没有
+\cleardoublepage % keep this line
+\pagenumbering{arabic}
+
+% 参考教程，在chapters目录中单独写各章（ch1.tex, ch2.tex...）
+\include{chapters/ch1} %%% 论文的目录结构大致如下：
+% \include{chapters/ch2} % thesis/
+% \include{chapters/ch3} %       ├── doc/
+% \include{chapters/ch4} %       │      ├── thesis.tex
+% \include{chapters/ch5} %       │      ├── chapters/
+% \include{chapters/ch6} %       │      │   ├── ch1.tex
+% \include{chapters/ch7} %       │      │   ├── ch2.tex
+% \include{chapters/ch8} %       │      │   ├── ch3.tex
+% \include{chapters/ch9} %       │      │   └── ...
+% \include{chapters/cha} %       │      ├── figs/
+% \include{chapters/chb} %       │      │   ├── flowchart.pdf
+% \include{chapters/chc} %       │      │   └── ...
+% \include{chapters/chd} %       │      └── ...
+% \include{chapters/che} %       └── src/
+% \include{chapters/chf} %              ├── hello.c
+% \include{chapters/chg} %              └── ...
+% \include{chapters/chh} %%%
+
+%%%%% appendix （参考文献、指导教师简介、鸣谢、附录）
+\appendix % keep this line
+\makebib % 参考文献
+
+\begin{advisorInfo} % 指导教师简介
+  王晓林，男，50岁，硕士，讲师，毕业于英国格林尼治大学，分布式计算系统专业。现任
+  西南林业大学计信学院教师。执教Linux、操作系统、网络技术等方面的课程，有丰富的Linux教学和系统管理经验。
+\end{advisorInfo}
+
+\begin{acknowledgment} % 致谢
+   大数据与智能工程学院是我心中的霍格沃茨学院，四年里，每每我更加深刻地理解计算机底层原
+ 理时，它总会让我感到犹如魔法般绚丽。正是那些理性的光辉，一次次令我着迷，让我对这门学科的
+兴趣一次次激活。
+\end{acknowledgment}
+
+%%%%% 附录章节
+\singlespacing
+\include{chapters/ch5}
+
+
+\end{document} % 结束。不要动下面几行！
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
